@@ -1,0 +1,7 @@
+{
+  "name": "XR Connect",
+  "description": "A futuristic event companion app for XR enthusiasts, featuring QR scanning and profile matching.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
