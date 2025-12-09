@@ -1,0 +1,256 @@
+{
+  "assets": [
+    {
+      "uri": "../gltf/generated/plantSansevieria.gltf",
+      "name": "plantSansevieria"
+    },
+    {
+      "uri": "../gltf/generated/robot.gltf",
+      "name": "robot"
+    }
+  ],
+  "nodes": [
+    {
+      "extras": {
+        "meta_spatial": {
+          "entity_id": "welcomePanel",
+          "components": {
+            "com.iwsdk.components.PanelUI": {
+              "maxHeight": {
+                "type": "Float",
+                "value": 1
+              },
+              "maxWidth": {
+                "type": "Float",
+                "value": 1.7999999523162842
+              },
+              "config": {
+                "type": "String",
+                "value": "/./ui/welcome.uikitml"
+              }
+            },
+            "com.iwsdk.components.Interactable": {},
+            "com.iwsdk.components.ScreenSpace": {
+              "zOffset": {
+                "keyString": "zOffset",
+                "type": "Float",
+                "value": 0.2
+              },
+              "width": {
+                "keyString": "width",
+                "type": "String",
+                "value": "auto"
+              },
+              "top": {
+                "keyString": "top",
+                "type": "String",
+                "value": "20px"
+              },
+              "right": {
+                "keyString": "right",
+                "type": "String",
+                "value": "auto"
+              },
+              "left": {
+                "keyString": "left",
+                "type": "String",
+                "value": "20px"
+              },
+              "height": {
+                "keyString": "height",
+                "type": "String",
+                "value": "40%"
+              },
+              "bottom": {
+                "keyString": "bottom",
+                "type": "String",
+                "value": "auto"
+              }
+            }
+          },
+          "version": 1
+        }
+      },
+      "translation": [
+        0,
+        1.600000023841858,
+        -2
+      ],
+      "name": "welcomePanel"
+    },
+    {
+      "extras": {
+        "meta_spatial": {
+          "entity_id": "plantSansevieria",
+          "components": {
+            "com.iwsdk.components.DistanceGrabbable": {
+              "translate": {
+                "keyString": "translate",
+                "type": "Boolean",
+                "value": true
+              },
+              "scale": {
+                "keyString": "scale",
+                "type": "Boolean",
+                "value": true
+              },
+              "rotate": {
+                "keyString": "rotate",
+                "type": "Boolean",
+                "value": true
+              },
+              "returnToOrigin": {
+                "keyString": "returnToOrigin",
+                "type": "Boolean",
+                "value": false
+              },
+              "movementMode": {
+                "keyString": "movementMode",
+                "alias": "MoveFromTarget",
+                "type": "MovementMode",
+                "value": 0
+              },
+              "moveSpeed": {
+                "keyString": "moveSpeed",
+                "type": "Float",
+                "value": 0.1
+              }
+            },
+            "com.iwsdk.components.Interactable": {}
+          },
+          "version": 1
+        }
+      },
+      "translation": [
+        1.2000000476837158,
+        0.20065295696258545,
+        -1.7999999523162842
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ],
+      "asset": 0,
+      "name": "plantSansevieria"
+    },
+    {
+      "extras": {
+        "meta_spatial": {
+          "entity_id": "robot",
+          "components": {
+            "com.iwsdk.components.Robot": {},
+            "com.iwsdk.components.AudioSource": {
+              "refDistance": {
+                "keyString": "refDistance",
+                "type": "Float",
+                "value": 1
+              },
+              "positional": {
+                "keyString": "positional",
+                "type": "Boolean",
+                "value": true
+              },
+              "playbackMode": {
+                "keyString": "playbackMode",
+                "alias": "fade-restart",
+                "type": "PlaybackMode",
+                "value": 3
+              },
+              "loop": {
+                "keyString": "loop",
+                "type": "Boolean",
+                "value": false
+              },
+              "instanceStealPolicy": {
+                "keyString": "instanceStealPolicy",
+                "alias": "oldest",
+                "type": "InstanceStealPolicy",
+                "value": 0
+              },
+              "distanceModel": {
+                "keyString": "distanceModel",
+                "alias": "inverse",
+                "type": "DistanceModel",
+                "value": 1
+              },
+              "crossfadeDuration": {
+                "keyString": "crossfadeDuration",
+                "type": "Float",
+                "value": 0.1
+              },
+              "volume": {
+                "keyString": "volume",
+                "type": "Float",
+                "value": 1
+              },
+              "src": {
+                "keyString": "src",
+                "type": "String",
+                "value": "/audio/chime.mp3"
+              },
+              "rolloffFactor": {
+                "keyString": "rolloffFactor",
+                "type": "Float",
+                "value": 1
+              },
+              "maxInstances": {
+                "keyString": "maxInstances",
+                "type": "Int",
+                "value": 3
+              },
+              "maxDistance": {
+                "keyString": "maxDistance",
+                "type": "Float",
+                "value": 10000
+              },
+              "coneOuterGain": {
+                "keyString": "coneOuterGain",
+                "type": "Float",
+                "value": 0
+              },
+              "coneOuterAngle": {
+                "keyString": "coneOuterAngle",
+                "type": "Float",
+                "value": 360
+              },
+              "coneInnerAngle": {
+                "keyString": "coneInnerAngle",
+                "type": "Float",
+                "value": 360
+              },
+              "autoplay": {
+                "keyString": "autoplay",
+                "type": "Boolean",
+                "value": false
+              }
+            },
+            "com.iwsdk.components.Interactable": {}
+          },
+          "version": 1
+        }
+      },
+      "translation": [
+        -1.2000000476837158,
+        0.4000000059604645,
+        -1.7999999523162842
+      ],
+      "asset": 1,
+      "name": "robot"
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "scene": 0,
+  "asset": {
+    "minVersion": "2.0",
+    "version": "2.0"
+  }
+}

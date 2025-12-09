@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XR NODE - Test QR Codes</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a2e;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      color: #00f0ff;
+      text-align: center;
+    }
+    .qr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .qr-card {
+      background: #2a2a4e;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .qr-card canvas {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .qr-card h3 {
+      margin: 10px 0 5px;
+      color: #00f0ff;
+    }
+    .qr-card p {
+      margin: 5px 0;
+      color: #a0a0a0;
+      font-size: 14px;
+    }
+    .qr-card .id {
+      font-family: monospace;
+      color: #7000ff;
+    }
+    .instructions {
+      text-align: center;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #2a2a4e;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 XR NODE - Test QR Codes</h1>
+  
+  <div class="instructions">
+    <p>Print these QR codes or display them on a screen to test the XR NODE matchmaking app.</p>
+    <p>Each QR code contains a participant ID that will trigger a profile lookup.</p>
+  </div>
+
+  <div class="qr-grid" id="qr-grid"></div>
+
+  <script>
+    const participants = [
+      { id: 'p001', name: 'Sabina Chen', role: 'Project Manager' },
+      { id: 'p002', name: 'Vong Patel', role: 'Data Strategist' },
+      { id: 'p003', name: 'Marlaina Rodriguez', role: 'XR Developer' },
+      { id: 'p004', name: 'Alex Kim', role: 'AI Engineer' },
+      { id: 'p005', name: 'Jordan Taylor', role: 'UX Designer' },
+      { id: 'p006', name: 'Deepak Sharma', role: 'Full Stack Developer' },
+      { id: 'p007', name: 'Serena Williams', role: 'AI Researcher' },
+      { id: 'p008', name: 'Marcus Johnson', role: '3D Artist' }
+    ];
+
+    const grid = document.getElementById('qr-grid');
+
+    participants.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'qr-card';
+      
+      const canvas = document.createElement('canvas');
+      card.appendChild(canvas);
+      
+      const name = document.createElement('h3');
+      name.textContent = p.name;
+      card.appendChild(name);
+      
+      const role = document.createElement('p');
+      role.textContent = p.role;
+      card.appendChild(role);
+      
+      const id = document.createElement('p');
+      id.className = 'id';
+      id.textContent = `XRNODE:${p.id}`;
+      card.appendChild(id);
+      
+      grid.appendChild(card);
+      
+      // Generate QR code
+      QRCode.toCanvas(canvas, `XRNODE:${p.id}`, {
+        width: 150,
+        margin: 2,
+        color: {
+          dark: '#1a1a2e',
+          light: '#ffffff'
+        }
+      });
+    });
+  </script>
+</body>
+</html>
