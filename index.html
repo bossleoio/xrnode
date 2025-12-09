@@ -2,8 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XR Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="description" content="XR NODE - Mixed Reality Matchmaking for Events" />
+    
+    <!-- WebXR Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Meta Quest / WebXR Specific -->
+    <meta name="xr-spatial-tracking" content="true" />
+    <meta name="hand-tracking" content="true" />
+    
+    <!-- Camera Permissions -->
+    <meta http-equiv="Permissions-Policy" content="camera=*, microphone=*, xr-spatial-tracking=*" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <title>XR NODE - Matchmaking</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -29,12 +53,22 @@
             },
             animation: {
               'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'scan-line': 'scan 2s linear infinite'
+              'scan-line': 'scan 2s linear infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'float': 'float 3s ease-in-out infinite'
             },
             keyframes: {
               scan: {
                 '0%': { transform: 'translateY(-100%)' },
                 '100%': { transform: 'translateY(100%)' }
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 20px rgba(0, 240, 255, 0.3)' },
+                '100%': { boxShadow: '0 0 40px rgba(0, 240, 255, 0.6)' }
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' }
               }
             }
           }
@@ -42,24 +76,91 @@
       }
     </script>
     <style>
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      html, body {
+        height: 100%;
+        overscroll-behavior: none;
+      }
+      
       body {
         background-color: #050505;
         color: #e0e0e0;
         overflow-x: hidden;
+        font-family: 'Inter', sans-serif;
       }
+      
       /* Custom scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
       }
       ::-webkit-scrollbar-track {
         background: #101014;
       }
       ::-webkit-scrollbar-thumb {
         background: #505050;
-        border-radius: 4px;
+        border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #00f0ff;
+      }
+      
+      /* Safe area for mobile devices */
+      .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom, 0);
+      }
+      
+      /* Aura glow effects */
+      .aura-green {
+        box-shadow: 0 0 30px rgba(34, 197, 94, 0.4), 0 0 60px rgba(34, 197, 94, 0.2);
+      }
+      .aura-yellow {
+        box-shadow: 0 0 30px rgba(234, 179, 8, 0.4), 0 0 60px rgba(234, 179, 8, 0.2);
+      }
+      .aura-red {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.4), 0 0 60px rgba(239, 68, 68, 0.2);
+      }
+      
+      /* Scan line animation */
+      @keyframes scan {
+        0% { top: 0; }
+        100% { top: 100%; }
+      }
+      
+      /* Pulse animation for match indicators */
+      .match-pulse {
+        animation: matchPulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes matchPulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.05); }
+      }
+      
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #00f0ff 0%, #7000ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* Glass effect */
+      .glass {
+        background: rgba(16, 16, 20, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      /* Hide scrollbar but keep functionality */
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
       }
     </style>
   <script type="importmap">

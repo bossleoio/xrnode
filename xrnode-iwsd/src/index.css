@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --xr-dark: #1a1a2e;
+  --xr-panel: #2a2a4e;
+  --xr-accent: #00f0ff;
+  --xr-secondary: #7000ff;
+  --xr-dim: #808080;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, #react-root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--xr-dark);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Tailwind color utilities */
+.bg-xr-dark {
+  background-color: var(--xr-dark);
+}
+
+.bg-xr-panel {
+  background-color: var(--xr-panel);
+}
+
+.text-xr-accent {
+  color: var(--xr-accent);
+}
+
+.text-xr-secondary {
+  color: var(--xr-secondary);
+}
+
+.text-xr-dim {
+  color: var(--xr-dim);
+}
+
+.border-xr-dim {
+  border-color: var(--xr-dim);
+}
+
+.shadow-xr-accent {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.shadow-xr-secondary {
+  box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+}
+
+/* Smooth transitions */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--xr-panel);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--xr-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4e8;
+}

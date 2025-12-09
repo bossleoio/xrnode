@@ -1,0 +1,33 @@
+{
+  "name": "XR NODE - Matchmaking",
+  "short_name": "XR NODE",
+  "description": "Mixed Reality Matchmaking for Events - Scan QR codes to connect with participants",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#00f0ff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["social", "productivity"],
+  "xr_features": {
+    "immersive_ar": true,
+    "immersive_vr": true,
+    "hand_tracking": true,
+    "dom_overlay": true
+  },
+  "permissions": [
+    "camera",
+    "xr-spatial-tracking"
+  ]
+}
