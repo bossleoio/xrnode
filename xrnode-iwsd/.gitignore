@@ -3,7 +3,7 @@ node_modules/
 .pnpm-debug.log*
 
 # Build outputs
-dist/
+# dist/ - Keep dist for GitHub Pages deployment
 *.tsbuildinfo
 
 # Environment files
